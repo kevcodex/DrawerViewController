@@ -10,6 +10,17 @@
 		0AD8CE0F2400918A00A4831B /* DrawerViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AD8CE052400918A00A4831B /* DrawerViewController.framework */; };
 		0AD8CE142400918A00A4831B /* DrawerViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD8CE132400918A00A4831B /* DrawerViewControllerTests.swift */; };
 		0AD8CE162400918A00A4831B /* DrawerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AD8CE082400918A00A4831B /* DrawerViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0AD8CE28240091D000A4831B /* DrawerScrollContentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD8CE1F240091D000A4831B /* DrawerScrollContentHandler.swift */; };
+		0AD8CE29240091D000A4831B /* DrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD8CE20240091D000A4831B /* DrawerViewController.swift */; };
+		0AD8CE2A240091D000A4831B /* DrawerViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD8CE21240091D000A4831B /* DrawerViewControllerDelegate.swift */; };
+		0AD8CE2B240091D000A4831B /* DrawerLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD8CE22240091D000A4831B /* DrawerLayout.swift */; };
+		0AD8CE2C240091D000A4831B /* UISpringTimingParameters+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD8CE23240091D000A4831B /* UISpringTimingParameters+Extensions.swift */; };
+		0AD8CE2D240091D000A4831B /* PassThroughView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD8CE24240091D000A4831B /* PassThroughView.swift */; };
+		0AD8CE2E240091D000A4831B /* GrabberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD8CE25240091D000A4831B /* GrabberView.swift */; };
+		0AD8CE2F240091D000A4831B /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD8CE26240091D000A4831B /* UIViewController+Extensions.swift */; };
+		0AD8CE30240091D000A4831B /* DrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD8CE27240091D000A4831B /* DrawerView.swift */; };
+		0AD8CE322400925F00A4831B /* Collection+Safe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD8CE312400925F00A4831B /* Collection+Safe.swift */; };
+		0AD8CE34240092A600A4831B /* ScrollView+Bouncing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD8CE33240092A600A4831B /* ScrollView+Bouncing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +40,17 @@
 		0AD8CE0E2400918A00A4831B /* DrawerViewControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DrawerViewControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AD8CE132400918A00A4831B /* DrawerViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerViewControllerTests.swift; sourceTree = "<group>"; };
 		0AD8CE152400918A00A4831B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0AD8CE1F240091D000A4831B /* DrawerScrollContentHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerScrollContentHandler.swift; sourceTree = "<group>"; };
+		0AD8CE20240091D000A4831B /* DrawerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerViewController.swift; sourceTree = "<group>"; };
+		0AD8CE21240091D000A4831B /* DrawerViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerViewControllerDelegate.swift; sourceTree = "<group>"; };
+		0AD8CE22240091D000A4831B /* DrawerLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerLayout.swift; sourceTree = "<group>"; };
+		0AD8CE23240091D000A4831B /* UISpringTimingParameters+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UISpringTimingParameters+Extensions.swift"; sourceTree = "<group>"; };
+		0AD8CE24240091D000A4831B /* PassThroughView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassThroughView.swift; sourceTree = "<group>"; };
+		0AD8CE25240091D000A4831B /* GrabberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrabberView.swift; sourceTree = "<group>"; };
+		0AD8CE26240091D000A4831B /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		0AD8CE27240091D000A4831B /* DrawerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerView.swift; sourceTree = "<group>"; };
+		0AD8CE312400925F00A4831B /* Collection+Safe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Safe.swift"; sourceTree = "<group>"; };
+		0AD8CE33240092A600A4831B /* ScrollView+Bouncing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScrollView+Bouncing.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +93,17 @@
 		0AD8CE072400918A00A4831B /* DrawerViewController */ = {
 			isa = PBXGroup;
 			children = (
+				0AD8CE20240091D000A4831B /* DrawerViewController.swift */,
+				0AD8CE21240091D000A4831B /* DrawerViewControllerDelegate.swift */,
+				0AD8CE27240091D000A4831B /* DrawerView.swift */,
+				0AD8CE22240091D000A4831B /* DrawerLayout.swift */,
+				0AD8CE1F240091D000A4831B /* DrawerScrollContentHandler.swift */,
+				0AD8CE25240091D000A4831B /* GrabberView.swift */,
+				0AD8CE24240091D000A4831B /* PassThroughView.swift */,
+				0AD8CE23240091D000A4831B /* UISpringTimingParameters+Extensions.swift */,
+				0AD8CE26240091D000A4831B /* UIViewController+Extensions.swift */,
+				0AD8CE312400925F00A4831B /* Collection+Safe.swift */,
+				0AD8CE33240092A600A4831B /* ScrollView+Bouncing.swift */,
 				0AD8CE082400918A00A4831B /* DrawerViewController.h */,
 				0AD8CE092400918A00A4831B /* Info.plist */,
 			);
@@ -148,6 +181,7 @@
 				TargetAttributes = {
 					0AD8CE042400918A00A4831B = {
 						CreatedOnToolsVersion = 11.3.1;
+						LastSwiftMigration = 1130;
 					};
 					0AD8CE0D2400918A00A4831B = {
 						CreatedOnToolsVersion = 11.3.1;
@@ -195,6 +229,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AD8CE34240092A600A4831B /* ScrollView+Bouncing.swift in Sources */,
+				0AD8CE2B240091D000A4831B /* DrawerLayout.swift in Sources */,
+				0AD8CE2E240091D000A4831B /* GrabberView.swift in Sources */,
+				0AD8CE28240091D000A4831B /* DrawerScrollContentHandler.swift in Sources */,
+				0AD8CE30240091D000A4831B /* DrawerView.swift in Sources */,
+				0AD8CE322400925F00A4831B /* Collection+Safe.swift in Sources */,
+				0AD8CE2A240091D000A4831B /* DrawerViewControllerDelegate.swift in Sources */,
+				0AD8CE2F240091D000A4831B /* UIViewController+Extensions.swift in Sources */,
+				0AD8CE2D240091D000A4831B /* PassThroughView.swift in Sources */,
+				0AD8CE29240091D000A4831B /* DrawerViewController.swift in Sources */,
+				0AD8CE2C240091D000A4831B /* UISpringTimingParameters+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +385,7 @@
 		0AD8CE1A2400918A00A4831B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 7U5UFZ4SY4;
@@ -356,6 +402,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Example.DrawerViewController;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -364,6 +411,7 @@
 		0AD8CE1B2400918A00A4831B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 7U5UFZ4SY4;
@@ -388,6 +436,7 @@
 		0AD8CE1D2400918A00A4831B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7U5UFZ4SY4;
 				INFOPLIST_FILE = DrawerViewControllerTests/Info.plist;
@@ -406,6 +455,7 @@
 		0AD8CE1E2400918A00A4831B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7U5UFZ4SY4;
 				INFOPLIST_FILE = DrawerViewControllerTests/Info.plist;
