@@ -32,6 +32,8 @@ public protocol DrawerViewControllerDelegate: class {
 }
 
 public extension DrawerViewControllerDelegate {
+    func drawerViewControllerViewDidAppear(_ drawerViewController: DrawerViewController) {}
+    
     /// Called when the user starts dragging the drawer view
     func drawerViewControllerWillBeginDragging(_ drawerViewController: DrawerViewController) {}
     

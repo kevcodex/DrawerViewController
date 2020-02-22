@@ -9,7 +9,8 @@ public protocol DrawerLayout: class {
     
     func currentPositionInset() -> CGFloat?
     
-    /// From the bottom
+    /// All values are based on a coordinate where the bottom left is zero.
+    /// For example, a top inset will be 750 while a bottom inset will be 90.
     func inset(for position: DrawerViewController.Position) -> CGFloat?
 }
 

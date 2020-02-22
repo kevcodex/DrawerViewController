@@ -75,8 +75,8 @@
 		0AD8CDFB2400918A00A4831B = {
 			isa = PBXGroup;
 			children = (
-				0AD8CE072400918A00A4831B /* DrawerViewController */,
-				0AD8CE122400918A00A4831B /* DrawerViewControllerTests */,
+				0AD8CE072400918A00A4831B /* Source */,
+				0AD8CE122400918A00A4831B /* Tests */,
 				0AD8CE062400918A00A4831B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -90,7 +90,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0AD8CE072400918A00A4831B /* DrawerViewController */ = {
+		0AD8CE072400918A00A4831B /* Source */ = {
 			isa = PBXGroup;
 			children = (
 				0AD8CE20240091D000A4831B /* DrawerViewController.swift */,
@@ -107,16 +107,16 @@
 				0AD8CE082400918A00A4831B /* DrawerViewController.h */,
 				0AD8CE092400918A00A4831B /* Info.plist */,
 			);
-			path = DrawerViewController;
+			path = Source;
 			sourceTree = "<group>";
 		};
-		0AD8CE122400918A00A4831B /* DrawerViewControllerTests */ = {
+		0AD8CE122400918A00A4831B /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				0AD8CE132400918A00A4831B /* DrawerViewControllerTests.swift */,
 				0AD8CE152400918A00A4831B /* Info.plist */,
 			);
-			path = DrawerViewControllerTests;
+			path = Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -392,7 +392,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = DrawerViewController/Info.plist;
+				INFOPLIST_FILE = Source/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -418,7 +418,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = DrawerViewController/Info.plist;
+				INFOPLIST_FILE = Source/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -439,7 +439,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7U5UFZ4SY4;
-				INFOPLIST_FILE = DrawerViewControllerTests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -458,7 +458,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7U5UFZ4SY4;
-				INFOPLIST_FILE = DrawerViewControllerTests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

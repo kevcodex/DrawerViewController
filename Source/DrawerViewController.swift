@@ -12,34 +12,34 @@ open class DrawerViewController: UIViewController {
     /// The initial top anchor constant when starting to drag the view
     private var initialConstant: CGFloat = 0
     
-    private(set) var drawerView: DrawerView = DrawerView()
+    public private(set) var drawerView: DrawerView = DrawerView()
     
     /// The drawer view's background color
-    var backgroundColor: UIColor = .white {
+    public var backgroundColor: UIColor = .white {
         didSet {
             drawerView.backgroundColor = backgroundColor
         }
     }
     
-    private(set) var layout: DrawerLayout!
+    public private(set) var layout: DrawerLayout!
     
     /// The max y the drawer view can be dragged to top.
     /// This should be less than the max position inset.
-    var drawerViewMaxY: CGFloat = 0
+    public var drawerViewMaxY: CGFloat = 0
     
     /// The min y the view can be dragged to bottom.
     /// This should be less than the min position inset.
-    var drawerViewMinY: CGFloat = 0
+    public var drawerViewMinY: CGFloat = 0
     
     /// Is the view being dragged
-    var isDragging: Bool = false
+    public var isDragging: Bool = false
     
-    var currentHeight: CGFloat {
+    public var currentHeight: CGFloat {
         return topAnchor.constant
     }
     
     /// A mapping of the point to position.
-    var positionMapping: [CGFloat: Position] {
+    public var positionMapping: [CGFloat: Position] {
         var positionMapping: [CGFloat: Position] = [:]
         for position in Position.allCases {
             if let inset = layout.inset(for: position) {
@@ -49,13 +49,13 @@ open class DrawerViewController: UIViewController {
         return positionMapping
     }
     
-    weak var delegate: DrawerViewControllerDelegate? {
+    public weak var delegate: DrawerViewControllerDelegate? {
         didSet {
             layout = delegate?.drawerViewControllerLayout(in: self) ?? DefaultDrawerLayout()
         }
     }
     /// The time interval required to complete one oscillation. This affects the "duration" of the animation.
-    static var frequencyPeriod: CGFloat = 0.38
+    public static var frequencyPeriod: CGFloat = 0.38
     
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -89,7 +89,7 @@ open class DrawerViewController: UIViewController {
     // MARK: - Setup
     
     /// Initialize a newly created drawer panel controller.
-    init() {
+    public init() {
         super.init(nibName: nil, bundle: nil)
         setUp()
     }
@@ -139,7 +139,7 @@ open class DrawerViewController: UIViewController {
     // MARK: - Public Methods
     
     /// Add the drawer view controller to parent
-    func add(to viewController: UIViewController, animated: Bool = true) {
+    public func add(to viewController: UIViewController, animated: Bool = true) {
         
         guard parent == nil else {
             assertionFailure("Already added to vc")
@@ -156,7 +156,7 @@ open class DrawerViewController: UIViewController {
         }
     }
     
-    func showDrawerView(at position: Position,
+    public func showDrawerView(at position: Position,
                         vector: CGVector = .zero,
                         frequencyPeriod: CGFloat = DrawerViewController.frequencyPeriod,
                         animated: Bool,
@@ -176,25 +176,26 @@ open class DrawerViewController: UIViewController {
     }
     
     /// Set an embedded view controller to the drawer view
-    func set(contentViewController: UIViewController) {
+    /// - Parameters:
+    ///     - bottomSpacing: Spacing needed to compensate for drawer view not filling entire screen.
+    public func set(contentViewController: UIViewController, bottomSpacing: CGFloat? = nil) {
         
         addChild(contentViewController)
         
-        let bottomSpacing = view.frame.height - (layout.inset(for: .top) ?? view.frame.height)
-        drawerView.set(contentView: contentViewController.view, bottomSpacing: bottomSpacing)
+        drawerView.set(contentView: contentViewController.view, bottomSpacing: bottomSpacing ?? 0)
         
         contentViewController.didMove(toParent: self)
     }
     
     /// Call when you need to update the position layout.
     /// It will ask the delegate for the position layout.
-    func updatePositionLayout() {
+    public func updatePositionLayout() {
         layout = delegate?.drawerViewControllerLayout(in: self) ?? DefaultDrawerLayout()
     }
     
     /// Finds the nearest position from current position
     /// and move drawer to that position
-    func snapToNearestPosition(from position: CGFloat, animated: Bool) {
+    public func snapToNearestPosition(from position: CGFloat, animated: Bool) {
         
         var positionPoint: CGFloat = 0
         
@@ -230,14 +231,14 @@ open class DrawerViewController: UIViewController {
     }
     
     /// Determine the points the selected point is between based on the defined positions.
-    func pointsContaining(targetPoint: CGFloat) -> (lowerValue: CGFloat?, upperValue: CGFloat?) {
+    public func pointsContaining(targetPoint: CGFloat) -> (lowerValue: CGFloat?, upperValue: CGFloat?) {
         let insets = positionMapping.keys.sorted()
                 
         return binarySearchRange(array: insets, target: targetPoint)
     }
     
     /// The positions that the target point is between.
-    func positionsContaining(targetPoint: CGFloat) -> (lowerPosition: Position?, upperPosition: Position?) {
+    public func positionsContaining(targetPoint: CGFloat) -> (lowerPosition: Position?, upperPosition: Position?) {
         let range = pointsContaining(targetPoint: targetPoint)
         
         let positionMapping = self.positionMapping
@@ -261,7 +262,7 @@ open class DrawerViewController: UIViewController {
     
     /// The reason this is needed is because a scroll view pan gesture will not always have the state .began.
     /// This can lead to weird bugs without it.
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+    public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         delegate?.drawerViewControllerWillBeginDragging(self)
         initialConstant = topAnchor.constant
     }
@@ -271,7 +272,7 @@ open class DrawerViewController: UIViewController {
     /// By default, this will prevent the embeded scroll view from scrolling and move the drawer view instead.
     /// If you want to allow scrolling, you need to impliment custom logic in the scrollViewDidScroll caller.
     /// - Parameter initialOffset: The initial offset of the scroll view if you want it to stay in the same position, defaults to (0,0)
-    func scrollViewDidScroll(_ scrollView: UIScrollView, initialOffset: CGPoint? = nil) {
+    public func scrollViewDidScroll(_ scrollView: UIScrollView, initialOffset: CGPoint? = nil) {
         
         if scrollView.panGestureRecognizer.state == .changed {
             handle(panGesture: scrollView.panGestureRecognizer)
@@ -284,7 +285,7 @@ open class DrawerViewController: UIViewController {
     
     /// The reason this is needed is because a scroll view pan gesture will not trigger the state .ended.
     /// So need to implement this method to trigger the .ended state.
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView)  {
+    public func scrollViewDidEndDragging(_ scrollView: UIScrollView)  {
         handle(panGesture: scrollView.panGestureRecognizer)
         scrollView.showsVerticalScrollIndicator = true
     }

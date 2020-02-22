@@ -4,11 +4,11 @@
 
 import UIKit
 
-public class DrawerView: UIView {
+open class DrawerView: UIView {
     
-    var grabberView = GrabberView()
+    public private(set) var grabberView = GrabberView()
     
-    var leftBarView: UIView?
+    public private(set) var leftBarView: UIView?
     
     private weak var contentView: UIView?
     
@@ -16,33 +16,33 @@ public class DrawerView: UIView {
     let topAreaHeight: CGFloat = 35
     let grabberHeight: CGFloat = 5
     
-    var grabberSpacing: CGFloat {
+    public var grabberSpacing: CGFloat {
         return (topAreaHeight - grabberHeight) / 2
     }
     
-    var cornerRadius: CGFloat = 24.0 {
+    public var cornerRadius: CGFloat = 24.0 {
         didSet {
             setNeedsLayout()
         }
     }
     
-    var grabberViewColor: UIColor = .gray {
+    public var grabberViewColor: UIColor = .gray {
         didSet {
             grabberView.barColor = grabberViewColor
         }
     }
     
-    override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
         setup()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
     }
     
-    func setup() {
+    public func setup() {
         addSubview(grabberView)
         grabberView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -67,7 +67,7 @@ public class DrawerView: UIView {
     /// - Parameters:
     ///   - contentView: The view to add
     ///   - bottomSpacing: Spacing needed to compensate for drawer view not filling entire screen
-    func set(contentView: UIView, bottomSpacing: CGFloat) {
+    public func set(contentView: UIView, bottomSpacing: CGFloat) {
         addSubview(contentView)
 
         contentView.translatesAutoresizingMaskIntoConstraints = false
@@ -81,7 +81,7 @@ public class DrawerView: UIView {
         self.contentView = contentView
     }
     
-    func setLeftBarView(_ view: UIView) {
+    public func setLeftBarView(_ view: UIView) {
         
         leftBarView?.removeFromSuperview()
         
@@ -100,7 +100,13 @@ public class DrawerView: UIView {
         leftBarView = view
     }
     
-    func setTopTapArea(target: Any?, action: Selector?, width: CGFloat) {
+    
+    /// Adds a tap gesture on the grabber handle to perform any action.
+    /// - Parameters:
+    ///   - target: An object that is the reciever of the action.
+    ///   - action: The action to perform on a tap
+    ///   - width: The width of the tap area.
+    public func setTopTapArea(target: Any?, action: Selector?, width: CGFloat) {
         
         let view = UIView()
         view.backgroundColor = .clear
