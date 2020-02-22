@@ -11,13 +11,21 @@ import DrawerViewController
 
 // A very simple example to add a basic content view to the drawer with custom insets.
 class ViewController: UIViewController {
+    
+    let drawer = DrawerViewController()
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        let currentPosition = drawer.layout.currentPosition
+        drawer.updatePositionLayout()
+        drawer.showDrawerView(at: currentPosition, animated: true)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .blue
         
-        let drawer = DrawerViewController()
         drawer.delegate = self
         
         let contentViewController = UIViewController()
@@ -37,25 +45,37 @@ class ViewController: UIViewController {
 
 extension ViewController: DrawerViewControllerDelegate {
     func drawerViewControllerLayout(in drawerViewController: DrawerViewController) -> DrawerLayout {
-        return CustomDrawerLayout()
+        if traitCollection.verticalSizeClass == .compact {
+            return CustomDrawerLayout(bottom: 90, mid: 200, top: 400)
+        } else {
+            return CustomDrawerLayout(bottom: 90, mid: 270, top: 800)
+        }
     }
 }
 
 final class CustomDrawerLayout: DrawerLayout {
     var currentPosition: DrawerViewController.Position = .hidden
     
-    init() {}
+    let bottom: CGFloat?
+    let mid: CGFloat?
+    let top: CGFloat?
+    
+    init(bottom: CGFloat?, mid: CGFloat?, top: CGFloat?) {
+        self.bottom = bottom
+        self.mid = mid
+        self.top = top
+    }
     
     func inset(for position: DrawerViewController.Position) -> CGFloat? {
         switch position {
         case .hidden:
             return nil
         case .bottom:
-            return 90
+            return bottom
         case .mid:
-            return 270
+            return mid
         case .top:
-            return 800
+            return top
         }
     }
 }
