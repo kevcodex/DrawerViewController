@@ -46,9 +46,9 @@ class ViewController: UIViewController {
 extension ViewController: DrawerViewControllerDelegate {
     func drawerViewControllerLayout(in drawerViewController: DrawerViewController) -> DrawerLayout {
         if traitCollection.verticalSizeClass == .compact {
-            return CustomDrawerLayout(bottom: 90, mid: 200, top: 400)
+            return CustomDrawerLayout(bottom: 110, mid: 200, top: 370)
         } else {
-            return CustomDrawerLayout(bottom: 90, mid: 270, top: 800)
+            return CustomDrawerLayout(bottom: 110, mid: 270, top: 760)
         }
     }
 }

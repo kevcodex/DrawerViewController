@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0AD0D59B2402ED6B00D5B7DB /* DrawerViewController.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 0AD8CE562400A13D00A4831B /* DrawerViewController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0AD8CE422400A10E00A4831B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD8CE412400A10E00A4831B /* AppDelegate.swift */; };
 		0AD8CE442400A10E00A4831B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD8CE432400A10E00A4831B /* SceneDelegate.swift */; };
 		0AD8CE462400A10E00A4831B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD8CE452400A10E00A4831B /* ViewController.swift */; };
@@ -16,7 +17,46 @@
 		0AD8CE572400A13D00A4831B /* DrawerViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AD8CE562400A13D00A4831B /* DrawerViewController.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		0AD0D5A12402EEF100D5B7DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0AD0D59C2402EEF100D5B7DB /* DrawerViewController.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0AD8CE052400918A00A4831B;
+			remoteInfo = DrawerViewController;
+		};
+		0AD0D5A32402EEF100D5B7DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0AD0D59C2402EEF100D5B7DB /* DrawerViewController.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0AD8CE0E2400918A00A4831B;
+			remoteInfo = DrawerViewControllerTests;
+		};
+		0AD0D5A52402EEFA00D5B7DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0AD0D59C2402EEF100D5B7DB /* DrawerViewController.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 0AD8CE042400918A00A4831B;
+			remoteInfo = DrawerViewController;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0AD0D59A2402ED5700D5B7DB /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				0AD0D59B2402ED6B00D5B7DB /* DrawerViewController.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		0AD0D59C2402EEF100D5B7DB /* DrawerViewController.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DrawerViewController.xcodeproj; path = ../../DrawerViewController.xcodeproj; sourceTree = "<group>"; };
 		0AD8CE3E2400A10E00A4831B /* SimpleExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AD8CE412400A10E00A4831B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AD8CE432400A10E00A4831B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -40,6 +80,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0AD0D59D2402EEF100D5B7DB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0AD0D5A22402EEF100D5B7DB /* DrawerViewController.framework */,
+				0AD0D5A42402EEF100D5B7DB /* DrawerViewControllerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		0AD8CE352400A10E00A4831B = {
 			isa = PBXGroup;
 			children = (
@@ -74,6 +123,7 @@
 		0AD8CE552400A13D00A4831B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0AD0D59C2402EEF100D5B7DB /* DrawerViewController.xcodeproj */,
 				0AD8CE562400A13D00A4831B /* DrawerViewController.framework */,
 			);
 			name = Frameworks;
@@ -89,10 +139,12 @@
 				0AD8CE3A2400A10E00A4831B /* Sources */,
 				0AD8CE3B2400A10E00A4831B /* Frameworks */,
 				0AD8CE3C2400A10E00A4831B /* Resources */,
+				0AD0D59A2402ED5700D5B7DB /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				0AD0D5A62402EEFA00D5B7DB /* PBXTargetDependency */,
 			);
 			name = SimpleExample;
 			productName = SimpleExample;
@@ -125,12 +177,35 @@
 			mainGroup = 0AD8CE352400A10E00A4831B;
 			productRefGroup = 0AD8CE3F2400A10E00A4831B /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 0AD0D59D2402EEF100D5B7DB /* Products */;
+					ProjectRef = 0AD0D59C2402EEF100D5B7DB /* DrawerViewController.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				0AD8CE3D2400A10E00A4831B /* SimpleExample */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		0AD0D5A22402EEF100D5B7DB /* DrawerViewController.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = DrawerViewController.framework;
+			remoteRef = 0AD0D5A12402EEF100D5B7DB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0AD0D5A42402EEF100D5B7DB /* DrawerViewControllerTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = DrawerViewControllerTests.xctest;
+			remoteRef = 0AD0D5A32402EEF100D5B7DB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		0AD8CE3C2400A10E00A4831B /* Resources */ = {
@@ -157,6 +232,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0AD0D5A62402EEFA00D5B7DB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = DrawerViewController;
+			targetProxy = 0AD0D5A52402EEFA00D5B7DB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		0AD8CE472400A10E00A4831B /* Main.storyboard */ = {
@@ -297,6 +380,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7U5UFZ4SY4;
 				INFOPLIST_FILE = SimpleExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -314,6 +398,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7U5UFZ4SY4;
 				INFOPLIST_FILE = SimpleExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
