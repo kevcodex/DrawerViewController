@@ -23,13 +23,12 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.backgroundColor = .blue
-        
+                
         drawer.delegate = self
         
-        let contentViewController = UIViewController()
-        contentViewController.view.backgroundColor = .red
+        let storyboard = UIStoryboard(name: "Content", bundle: nil)
+        let contentViewController = storyboard.instantiateViewController(identifier: "ContentViewController") as! ContentViewController
+        contentViewController.view.backgroundColor = .init(red: 246/255, green: 246/255, blue: 246/255, alpha: 1.0)
         
         let bottomSpacing = drawer.view.frame.height - (drawer.layout.inset(for: .top) ?? drawer.view.frame.height)
         
@@ -78,4 +77,8 @@ final class CustomDrawerLayout: DrawerLayout {
             return top
         }
     }
+}
+
+final class ContentViewController: UIViewController {
+    
 }

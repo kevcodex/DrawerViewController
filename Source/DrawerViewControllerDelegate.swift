@@ -4,7 +4,17 @@
 
 import UIKit
 
-public protocol DrawerViewControllerDelegate: class {
+public protocol DrawerViewControllerDelegate: class, DrawerEvent {
+    
+}
+
+/// Add to some object that needs to listen to drawer events.
+public protocol DrawerListener: DrawerEvent {
+    
+}
+
+/// Base protocol for all drawer events
+public protocol DrawerEvent {
     
     func drawerViewControllerViewDidAppear(_ drawerViewController: DrawerViewController)
     
@@ -31,7 +41,7 @@ public protocol DrawerViewControllerDelegate: class {
     func drawerViewControllerViewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator)
 }
 
-public extension DrawerViewControllerDelegate {
+public extension DrawerEvent {
     func drawerViewControllerViewDidAppear(_ drawerViewController: DrawerViewController) {}
     
     /// Called when the user starts dragging the drawer view

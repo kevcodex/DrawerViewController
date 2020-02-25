@@ -23,3 +23,4 @@ dependencies: [
 - [ ] Add cocoapods and carthage
 - [ ] Allow use of auto layout for drawer layout rather than set values
 - [ ] Create a "navigation drawer controller" with a custom animation similar to Apple maps to transition from one drawer to another
+- [ ] Consider having built in blur or opacity views that will automatically change based on points rather than client needing to make one

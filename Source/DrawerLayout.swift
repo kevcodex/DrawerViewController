@@ -24,6 +24,8 @@ final public class DefaultDrawerLayout: DrawerLayout {
     
     public var currentPosition: DrawerViewController.Position = .hidden
     
+    public init() {}
+    
     public func inset(for position: DrawerViewController.Position) -> CGFloat? {
         switch position {
         case .hidden:

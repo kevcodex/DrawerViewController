@@ -18,8 +18,10 @@ open class DrawerScrollContentHandler: NSObject {
     /// The content scroll view you want to monitor.
     weak var targetScrollView: UIScrollView?
     
-    init(targetScrollView: UIScrollView? = nil) {
+    /// Make sure to set both drawer and targetScrollView in order for this to work
+    public init(targetScrollView: UIScrollView? = nil, drawer: DrawerViewController? = nil) {
         self.targetScrollView = targetScrollView
+        self.drawer = drawer
     }
 }
 
