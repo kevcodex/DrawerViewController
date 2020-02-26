@@ -13,6 +13,7 @@ protocol FirstViewControllerDelegate: class {
     func firstViewController(_ firstViewController: FirstViewController, didSelectCity city: City)
 }
 
+// In this view we have a table view where the drawer insets are dynamic based on various things.
 final class FirstViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     

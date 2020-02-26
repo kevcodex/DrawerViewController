@@ -16,7 +16,10 @@ final class ContainerViewController: UIViewController {
     private let drawer = DrawerViewController()
     private let drawerBackButton = DrawnIconTextButton()
     
-    private var mapViewController: MapViewController!
+    private lazy var mapViewController: MapViewController = {
+        let storyboard = UIStoryboard(name: "Map", bundle: nil)
+        return storyboard.instantiateViewController(identifier: "MapViewController")
+    }()
     
     private let contentNavigationController = UINavigationController()
 
@@ -31,9 +34,6 @@ final class ContainerViewController: UIViewController {
     // MARK: - SetUp Methods
     
     private func setUpMap() {
-        let storyboard = UIStoryboard(name: "Map", bundle: nil)
-        mapViewController = storyboard.instantiateViewController(identifier: "MapViewController")
-        
         addChildVC(mapViewController)
         mapViewController.constrainToParent()
     }
@@ -156,9 +156,11 @@ extension ContainerViewController: DrawerViewControllerDelegate {
     
     func drawerViewControllerDidEndDragging(_ drawerViewController: DrawerViewController, with velocity: CGPoint, currentPoint: CGFloat, projectedPosition: DrawerViewController.Position?) {
         
-        guard let topViewController = contentNavigationController.topViewController else {
+        guard let topViewController = contentNavigationController.topViewController as? DrawerListener else {
             return
         }
+        
+        topViewController.drawerViewControllerDidEndDragging(drawerViewController, with: velocity, currentPoint: currentPoint, projectedPosition: projectedPosition)
 
         switch topViewController {
         case is FirstViewController:
@@ -183,6 +185,7 @@ extension ContainerViewController: FirstViewControllerDelegate {
         let storyboard = UIStoryboard(name: "Second", bundle: nil)
         
         let secondVC: SecondViewController = storyboard.instantiateViewController(identifier: "SecondViewController")
+        secondVC.delegate = self
         
         let initialPoint = self.drawer.layout.currentPositionInset() ?? 0
         mapViewController.unBlur(initialPoint: initialPoint)
@@ -193,5 +196,12 @@ extension ContainerViewController: FirstViewControllerDelegate {
         drawer.showDrawerView(at: .mid, animated: true)
         
         drawerBackButton.isHidden = false
+    }
+}
+
+// MARK: - Second View Controller Delegate
+extension ContainerViewController: SecondViewControllerDelegate {
+    func secondViewControllerViewDidAppear(_ secondViewController: SecondViewController) {
+        secondViewController.updateScrollInsets(drawer: drawer, position: drawer.layout.currentPosition)
     }
 }
