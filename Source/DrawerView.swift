@@ -13,8 +13,8 @@ open class DrawerView: UIView {
     private weak var contentView: UIView?
     
     // TODO: - Future allow top area and grabber view width/height to be changeable
-    let topAreaHeight: CGFloat = 35
-    let grabberHeight: CGFloat = 5
+    public let topAreaHeight: CGFloat = 35
+    public let grabberHeight: CGFloat = 5
     
     public var grabberSpacing: CGFloat {
         return (topAreaHeight - grabberHeight) / 2

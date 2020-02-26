@@ -83,7 +83,7 @@ open class DrawerViewController: UIViewController {
     override public func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         
-        delegate?.drawerViewControllerTraitCollectionDidChange(previousTraitCollection)
+        delegate?.drawerViewControllerTraitCollectionDidChange(in: self, previousTraitCollection: previousTraitCollection)
     }
     
     // MARK: - Setup

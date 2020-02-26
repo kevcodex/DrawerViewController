@@ -82,6 +82,8 @@ final class ContainerViewController: UIViewController {
         super.viewDidAppear(animated)
         
         // This is just because you'll get a warning about the table view is not added to hierarchy yet.
+        // Also to update the layout vased on safe insets which are not determined until view did appear
+        drawer.updatePositionLayout()
         drawer.showDrawerView(at: .mid, animated: true)
     }
     
@@ -164,6 +166,14 @@ extension ContainerViewController: DrawerViewControllerDelegate {
         default:
             break
         }
+    }
+    
+    func drawerViewControllerTraitCollectionDidChange(in drawerViewController: DrawerViewController, previousTraitCollection: UITraitCollection?) {
+        guard let topViewController = contentNavigationController.topViewController as? DrawerListener else {
+            return
+        }
+        
+        topViewController.drawerViewControllerTraitCollectionDidChange(in: drawerViewController, previousTraitCollection: previousTraitCollection)
     }
 }
 

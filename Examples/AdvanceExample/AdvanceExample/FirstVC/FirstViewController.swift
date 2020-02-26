@@ -23,6 +23,8 @@ final class FirstViewController: UIViewController {
     weak var blurrable: Blurrable?
     
     var viewModel = FirstViewModel()
+    
+    static let cellHeight: CGFloat = 140
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +48,22 @@ extension FirstViewController: FirstTableHandlerDelegate {
 
 extension FirstViewController: CustomDrawerListener {
     func drawerViewControllerLayout(in drawerViewController: DrawerViewController) -> DrawerLayout {
-        return FirstDrawerLayout()
+        
+        let topInset: CGFloat
+        let midInset: CGFloat
+        
+        // Dynamically set the insets based on the safe area and frame and cell height and trait layout.
+        if traitCollection.verticalSizeClass == .compact {
+            topInset = drawerViewController.view.frame.height - drawerViewController.view.safeAreaInsets.top - 20
+            
+            midInset = drawerViewController.drawerView.topAreaHeight + drawerViewController.view.safeAreaInsets.bottom
+        } else {
+            topInset = drawerViewController.view.frame.height - drawerViewController.view.safeAreaInsets.top - 44
+            
+            midInset = FirstViewController.cellHeight + drawerViewController.drawerView.topAreaHeight + drawerViewController.view.safeAreaInsets.bottom
+        }
+        
+        return FirstDrawerLayout(mid: midInset, top: topInset)
     }
     
     func drawerViewControllerDidPressGrabber(_ drawerViewController: DrawerViewController) {
@@ -58,10 +75,24 @@ extension FirstViewController: CustomDrawerListener {
             blurrable?.blur(initialPoint: nil, completion: nil)
         }
     }
+        
+    func drawerViewControllerTraitCollectionDidChange(in drawerViewController: DrawerViewController, previousTraitCollection: UITraitCollection?) {
+        let currentPosition = drawerViewController.layout.currentPosition
+        drawerViewController.updatePositionLayout()
+        drawerViewController.showDrawerView(at: currentPosition, animated: true)
+    }
 }
 
 final class FirstDrawerLayout: DrawerLayout {
     var currentPosition: DrawerViewController.Position = .hidden
+    
+    let mid: CGFloat?
+    let top: CGFloat?
+    
+    init(mid: CGFloat?, top: CGFloat?) {
+        self.mid = mid
+        self.top = top
+    }
     
     func inset(for position: DrawerViewController.Position) -> CGFloat? {
         switch position {
@@ -70,9 +101,9 @@ final class FirstDrawerLayout: DrawerLayout {
         case .bottom:
             return nil
         case .mid:
-            return 200
+            return mid
         case .top:
-            return 750
+            return top
         }
     }
 }

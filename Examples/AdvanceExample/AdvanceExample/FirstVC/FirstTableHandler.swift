@@ -45,7 +45,7 @@ extension FirstTableHandler: UITableViewDataSource {
 
 extension FirstTableHandler: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 140
+        return FirstViewController.cellHeight
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
