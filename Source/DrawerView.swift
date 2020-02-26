@@ -124,7 +124,7 @@ open class DrawerView: UIView {
         let tapGesture = UITapGestureRecognizer(target: target, action: action)
         view.addGestureRecognizer(tapGesture)
         
-        self.sendSubviewToBack(view)
+        self.bringSubviewToFront(view)
     }
 }
 

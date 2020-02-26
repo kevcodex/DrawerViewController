@@ -13,7 +13,7 @@ import DrawerViewController
 final class MapViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     
-    private(set) var blurAnimator: BlurAnimator?
+    var blurAnimator: BlurAnimator?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +24,7 @@ final class MapViewController: UIViewController {
 
 // MARK: - Blur Methods
 
-extension MapViewController {
+extension MapViewController: Blurrable {
     
     func unBlur(initialPoint: CGFloat?) {
         blurAnimator?.beginUnBlur(initialPoint: initialPoint, duration: TimeInterval(DrawerViewController.frequencyPeriod))

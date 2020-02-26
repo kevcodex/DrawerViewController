@@ -45,6 +45,7 @@ final class ContainerViewController: UIViewController {
         let firstVC: FirstViewController = storyboard.instantiateViewController(identifier: "FirstViewController") 
         firstVC.drawer = drawer
         firstVC.delegate = self
+        firstVC.blurrable = mapViewController
         
         contentNavigationController.setNavigationBarHidden(true, animated: false)
         contentNavigationController.setViewControllers([firstVC], animated: false)
@@ -73,6 +74,8 @@ final class ContainerViewController: UIViewController {
         
         drawer.drawerView.setLeftBarView(drawerBackButton)
         
+        // Setup touch area at the grab view
+        drawer.drawerView.setTopTapArea(target: self, action: #selector(drawerGrabberDidPress), width: 150)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -96,6 +99,16 @@ final class ContainerViewController: UIViewController {
             drawer.showDrawerView(at: .mid, animated: true)
         default:
             break
+        }
+    }
+    
+    @objc private func drawerGrabberDidPress(_ gesture: UITapGestureRecognizer) {
+        if gesture.state == .ended {
+            guard let topViewController = contentNavigationController.topViewController as? CustomDrawerListener else {
+                return
+            }
+            
+            topViewController.drawerViewControllerDidPressGrabber(drawer)
         }
     }
 }
@@ -154,6 +167,7 @@ extension ContainerViewController: DrawerViewControllerDelegate {
     }
 }
 
+// MARK: - First View Controller Delegate
 extension ContainerViewController: FirstViewControllerDelegate {
     func firstViewController(_ firstViewController: FirstViewController, didSelectCity city: City) {
         let storyboard = UIStoryboard(name: "Second", bundle: nil)
@@ -166,7 +180,7 @@ extension ContainerViewController: FirstViewControllerDelegate {
         contentNavigationController.pushViewController(secondVC, animated: true)
         
         drawer.updatePositionLayout()
-        drawer.showDrawerView(at: .bottom, animated: true)
+        drawer.showDrawerView(at: .mid, animated: true)
         
         drawerBackButton.isHidden = false
     }

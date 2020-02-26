@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A0F2AFB24061FA700017F22 /* Blurrable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0F2AFA24061FA700017F22 /* Blurrable.swift */; };
+		0A0F2AFE24061FBF00017F22 /* CustomDrawerListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0F2AFD24061FBF00017F22 /* CustomDrawerListener.swift */; };
 		0AD0D5B42402F2DE00D5B7DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD0D5B32402F2DE00D5B7DB /* AppDelegate.swift */; };
 		0AD0D5B62402F2DE00D5B7DB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD0D5B52402F2DE00D5B7DB /* SceneDelegate.swift */; };
 		0AD0D5B82402F2DE00D5B7DB /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD0D5B72402F2DE00D5B7DB /* ContainerViewController.swift */; };
@@ -75,6 +77,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0A0F2AFA24061FA700017F22 /* Blurrable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blurrable.swift; sourceTree = "<group>"; };
+		0A0F2AFD24061FBF00017F22 /* CustomDrawerListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDrawerListener.swift; sourceTree = "<group>"; };
 		0AD0D5B02402F2DE00D5B7DB /* AdvanceExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdvanceExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AD0D5B32402F2DE00D5B7DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AD0D5B52402F2DE00D5B7DB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -187,6 +191,8 @@
 			isa = PBXGroup;
 			children = (
 				552356C92404782D00A254B5 /* BlurAnimator.swift */,
+				0A0F2AFD24061FBF00017F22 /* CustomDrawerListener.swift */,
+				0A0F2AFA24061FA700017F22 /* Blurrable.swift */,
 				55D335412404A30900529EDB /* IconDrawFactory.swift */,
 			);
 			path = Utilities;
@@ -342,6 +348,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				55D335322404895500529EDB /* SecondViewController.swift in Sources */,
+				0A0F2AFB24061FA700017F22 /* Blurrable.swift in Sources */,
 				55D335442404A3AA00529EDB /* IconView.swift in Sources */,
 				55D335422404A30900529EDB /* IconDrawFactory.swift in Sources */,
 				0AD0D5B82402F2DE00D5B7DB /* ContainerViewController.swift in Sources */,
@@ -354,6 +361,7 @@
 				55D335482404A3EB00529EDB /* IconTextButton.swift in Sources */,
 				55D3353D24049DE200529EDB /* Collection+Safe.swift in Sources */,
 				55D3354D2404A42C00529EDB /* CornerRadiusDecorator.swift in Sources */,
+				0A0F2AFE24061FBF00017F22 /* CustomDrawerListener.swift in Sources */,
 				0AD0D5B62402F2DE00D5B7DB /* SceneDelegate.swift in Sources */,
 				552356C42404738100A254B5 /* MapViewController.swift in Sources */,
 				55D335362404951200529EDB /* FirstTableHandler.swift in Sources */,

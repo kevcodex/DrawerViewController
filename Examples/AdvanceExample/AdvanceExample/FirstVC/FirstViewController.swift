@@ -20,6 +20,7 @@ final class FirstViewController: UIViewController {
     
     weak var drawer: DrawerViewController?
     weak var delegate: FirstViewControllerDelegate?
+    weak var blurrable: Blurrable?
     
     var viewModel = FirstViewModel()
         
@@ -43,9 +44,19 @@ extension FirstViewController: FirstTableHandlerDelegate {
     }
 }
 
-extension FirstViewController: DrawerListener {
+extension FirstViewController: CustomDrawerListener {
     func drawerViewControllerLayout(in drawerViewController: DrawerViewController) -> DrawerLayout {
         return FirstDrawerLayout()
+    }
+    
+    func drawerViewControllerDidPressGrabber(_ drawerViewController: DrawerViewController) {
+        if drawerViewController.layout.currentPosition == .top {
+            drawerViewController.showDrawerView(at: .mid, animated: true)
+            blurrable?.unBlur(initialPoint: nil)
+        } else {
+            drawerViewController.showDrawerView(at: .top, animated: true)
+            blurrable?.blur(initialPoint: nil, completion: nil)
+        }
     }
 }
 
