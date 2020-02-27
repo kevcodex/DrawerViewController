@@ -73,7 +73,27 @@ final class SecondViewController: UIViewController {
 extension SecondViewController: DrawerListener {
     func drawerViewControllerLayout(in drawerViewController: DrawerViewController) -> DrawerLayout {
         updateScrollInsets(drawer: drawerViewController, position: drawerViewController.layout.currentPosition)
-        return SecondDrawerLayout()
+        
+        let bottomInset: CGFloat
+        let midInset: CGFloat
+        let topInset: CGFloat
+        
+        // Dynamically change the insets
+        if traitCollection.verticalSizeClass == .compact {
+            bottomInset = drawerViewController.drawerView.topAreaHeight + drawerViewController.view.safeAreaInsets.bottom
+            
+            midInset = 200
+
+            topInset = drawerViewController.view.frame.height - drawerViewController.view.safeAreaInsets.top - 20
+        } else {
+            bottomInset = 110
+            
+            midInset = 290
+
+            topInset = drawerViewController.view.frame.height - drawerViewController.view.safeAreaInsets.top - 44
+        }
+                
+        return SecondDrawerLayout(bottom: bottomInset, mid: midInset, top: topInset)
     }
     
     func drawerViewControllerDidEndDragging(_ drawerViewController: DrawerViewController, with velocity: CGPoint, currentPoint: CGFloat, projectedPosition: DrawerViewController.Position?) {
@@ -81,21 +101,39 @@ extension SecondViewController: DrawerListener {
         
         updateScrollInsets(drawer: drawerViewController, position: position)
     }
+    
+    func drawerViewControllerTraitCollectionDidChange(in drawerViewController: DrawerViewController, previousTraitCollection: UITraitCollection?) {
+        let currentPosition = drawerViewController.layout.currentPosition
+        drawerViewController.updatePositionLayout()
+        drawerViewController.showDrawerView(at: currentPosition, animated: true)
+        updateScrollInsets(drawer: drawerViewController,
+                           position: drawerViewController.layout.currentPosition)
+    }
 }
 
 final class SecondDrawerLayout: DrawerLayout {
     var currentPosition: DrawerViewController.Position = .hidden
+    
+    let bottom: CGFloat?
+    let mid: CGFloat?
+    let top: CGFloat?
+    
+    init(bottom: CGFloat?, mid: CGFloat?, top: CGFloat?) {
+        self.bottom = bottom
+        self.mid = mid
+        self.top = top
+    }
     
     func inset(for position: DrawerViewController.Position) -> CGFloat? {
         switch position {
         case .hidden:
             return nil
         case .bottom:
-            return 110
+            return bottom
         case .mid:
-            return 290
+            return mid
         case .top:
-            return 750
+            return top
         }
     }
 }
