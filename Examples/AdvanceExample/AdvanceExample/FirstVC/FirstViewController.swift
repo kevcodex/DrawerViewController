@@ -40,6 +40,33 @@ final class FirstViewController: UIViewController {
         viewModel.populate()
         tableView.reloadData()
     }
+    
+    private func updateScrollInsets(drawer: DrawerViewController, position: DrawerViewController.Position) {
+        let inset = drawer.layout.inset(for: position) ?? 0
+        
+        // Dynamically adjust scorll inset to scroll entire available area.
+        // So thats the height of the view minus the drawer inset + approx. title area + bottom safe area insets
+        let newInset = UIEdgeInsets(top: 0,
+                                    left: 0,
+                                    bottom: self.view.frame.height
+                                        - inset
+                                        + 40
+                                        + drawer.view.safeAreaInsets.bottom,
+                                    right: 0)
+        
+        UIView.animate(withDuration: 0.3) {
+            switch position {
+            case .bottom:
+                break
+            case .mid:
+                break
+            case .top:
+                self.tableView.contentInset = newInset
+            default:
+                break
+            }
+        }
+    }
 }
 
 extension FirstViewController: FirstTableHandlerDelegate {
@@ -76,12 +103,21 @@ extension FirstViewController: CustomDrawerListener {
             drawerViewController.showDrawerView(at: .top, animated: true)
             blurrable?.blur(initialPoint: nil, completion: nil)
         }
+        updateScrollInsets(drawer: drawerViewController,
+                           position: drawerViewController.layout.currentPosition)
+    }
+    
+    func drawerViewControllerDidEndDragging(_ drawerViewController: DrawerViewController, with velocity: CGPoint, currentPoint: CGFloat, projectedPosition: DrawerViewController.Position?) {
+        guard let position = projectedPosition else { return }
+        updateScrollInsets(drawer: drawerViewController, position: position)
     }
         
     func drawerViewControllerTraitCollectionDidChange(in drawerViewController: DrawerViewController, previousTraitCollection: UITraitCollection?) {
         let currentPosition = drawerViewController.layout.currentPosition
         drawerViewController.updatePositionLayout()
         drawerViewController.showDrawerView(at: currentPosition, animated: true)
+        updateScrollInsets(drawer: drawerViewController,
+                           position: drawerViewController.layout.currentPosition)
     }
 }
 

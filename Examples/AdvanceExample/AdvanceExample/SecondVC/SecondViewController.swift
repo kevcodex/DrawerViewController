@@ -51,6 +51,8 @@ final class SecondViewController: UIViewController {
                                         + drawer.view.safeAreaInsets.bottom,
                                     right: 0)
         
+        // Remove offset to prevent the inset not being re-adjusted
+        scrollHandler.scrollViewInitialOffset = nil
         UIView.animate(withDuration: 0.3) {
             switch position {
             case .bottom:

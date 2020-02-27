@@ -7,6 +7,7 @@ import UIKit
 /// Handler for allowing drawer to move based on content scroll view.
 /// Add to your view controller that has a scroll view you want to track.
 /// Defaults to only allow scroll when at top position and will pull drawer down when at top of the scroll.
+// TODO: - There's quite a few edge cases that cause odd issues. Might want to revist this...
 open class DrawerScrollContentHandler: NSObject {
     
     /// Can the drawer move when the table view is scrolling or moving.

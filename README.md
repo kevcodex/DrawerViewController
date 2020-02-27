@@ -16,7 +16,7 @@ dependencies: [
 ]
 ```
 
-## Improvements
+## Potential Improvements
 
 - [ ] Allow client customization for sizing during horizontal transitioning
 - [ ] Allow handle width/height client customization
@@ -24,3 +24,4 @@ dependencies: [
 - [ ] Allow use of auto layout for drawer layout rather than set values
 - [ ] Create a "navigation drawer controller" with a custom animation similar to Apple maps to transition from one drawer to another
 - [ ] Consider having built in blur or opacity views that will automatically change based on points rather than client needing to make one
+- [ ] Consider refactoring DrawerScrollContentHandler to make it better 
