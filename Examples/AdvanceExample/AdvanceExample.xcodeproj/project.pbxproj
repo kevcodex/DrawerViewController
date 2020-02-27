@@ -21,6 +21,7 @@
 		552356C62404738C00A254B5 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 552356C52404738C00A254B5 /* Map.storyboard */; };
 		552356C82404759900A254B5 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552356C72404759900A254B5 /* UIViewController+Extensions.swift */; };
 		552356CA2404782D00A254B5 /* BlurAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552356C92404782D00A254B5 /* BlurAnimator.swift */; };
+		5593219824073F2500EEA53B /* CustomScrollHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5593219724073F2500EEA53B /* CustomScrollHandler.swift */; };
 		55D3352F2404860900529EDB /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D3352E2404860900529EDB /* FirstViewController.swift */; };
 		55D335322404895500529EDB /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D335312404895500529EDB /* SecondViewController.swift */; };
 		55D3353424048B1A00529EDB /* First.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55D3353324048B1A00529EDB /* First.storyboard */; };
@@ -93,6 +94,7 @@
 		552356C52404738C00A254B5 /* Map.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
 		552356C72404759900A254B5 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		552356C92404782D00A254B5 /* BlurAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurAnimator.swift; sourceTree = "<group>"; };
+		5593219724073F2500EEA53B /* CustomScrollHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomScrollHandler.swift; sourceTree = "<group>"; };
 		55D3352E2404860900529EDB /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		55D335312404895500529EDB /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		55D3353324048B1A00529EDB /* First.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = First.storyboard; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 			children = (
 				55D3353E24049E9700529EDB /* Second.storyboard */,
 				55D335312404895500529EDB /* SecondViewController.swift */,
+				5593219724073F2500EEA53B /* CustomScrollHandler.swift */,
 			);
 			path = SecondVC;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				55D335462404A3CB00529EDB /* BasicButton.swift in Sources */,
 				55D3354C2404A42C00529EDB /* BorderDecorator.swift in Sources */,
 				0AD0D5B42402F2DE00D5B7DB /* AppDelegate.swift in Sources */,
+				5593219824073F2500EEA53B /* CustomScrollHandler.swift in Sources */,
 				552356C82404759900A254B5 /* UIViewController+Extensions.swift in Sources */,
 				55D335482404A3EB00529EDB /* IconTextButton.swift in Sources */,
 				55D3353D24049DE200529EDB /* Collection+Safe.swift in Sources */,

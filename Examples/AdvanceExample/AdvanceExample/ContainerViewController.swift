@@ -43,7 +43,7 @@ final class ContainerViewController: UIViewController {
         let storyboard = UIStoryboard(name: "First", bundle: nil)
         
         let firstVC: FirstViewController = storyboard.instantiateViewController(identifier: "FirstViewController") 
-        firstVC.drawer = drawer
+        firstVC.tableViewHandler.drawer = drawer
         firstVC.delegate = self
         firstVC.blurrable = mapViewController
         
@@ -186,6 +186,7 @@ extension ContainerViewController: FirstViewControllerDelegate {
         
         let secondVC: SecondViewController = storyboard.instantiateViewController(identifier: "SecondViewController")
         secondVC.delegate = self
+        secondVC.scrollHandler.drawer = drawer
         
         let initialPoint = self.drawer.layout.currentPositionInset() ?? 0
         mapViewController.unBlur(initialPoint: initialPoint)

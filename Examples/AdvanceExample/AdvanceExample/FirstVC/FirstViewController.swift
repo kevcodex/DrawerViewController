@@ -16,10 +16,11 @@ protocol FirstViewControllerDelegate: class {
 // In this view we have a table view where the drawer insets are dynamic based on various things.
 final class FirstViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+        
+    lazy var tableViewHandler: FirstTableHandler = {
+        FirstTableHandler(viewModel: viewModel)
+    }()
     
-    var tableViewHandler: FirstTableHandler?
-    
-    weak var drawer: DrawerViewController?
     weak var delegate: FirstViewControllerDelegate?
     weak var blurrable: Blurrable?
     
@@ -30,8 +31,8 @@ final class FirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableViewHandler = FirstTableHandler(viewModel: viewModel, targetScrollView: tableView, drawer: drawer)
-        tableViewHandler?.delegate = self
+        tableViewHandler.targetScrollView = tableView
+        tableViewHandler.delegate = self
         
         tableView.dataSource = tableViewHandler
         tableView.delegate = tableViewHandler

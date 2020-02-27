@@ -10,13 +10,13 @@ import UIKit
 open class DrawerScrollContentHandler: NSObject {
     
     /// Can the drawer move when the table view is scrolling or moving.
-    var canDrawerViewMove = true
+    public var canDrawerViewMove = true
     // Used for drawer dragging
-    var scrollViewInitialOffset: CGPoint?
+    public var scrollViewInitialOffset: CGPoint?
     
-    weak var drawer: DrawerViewController?
+    public weak var drawer: DrawerViewController?
     /// The content scroll view you want to monitor.
-    weak var targetScrollView: UIScrollView?
+    public weak var targetScrollView: UIScrollView?
     
     /// Make sure to set both drawer and targetScrollView in order for this to work
     public init(targetScrollView: UIScrollView? = nil, drawer: DrawerViewController? = nil) {
@@ -27,7 +27,7 @@ open class DrawerScrollContentHandler: NSObject {
 
 extension DrawerScrollContentHandler: UIScrollViewDelegate {
     
-    public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+    open func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         
         guard self.targetScrollView == scrollView else { return }
         
@@ -36,7 +36,7 @@ extension DrawerScrollContentHandler: UIScrollViewDelegate {
         drawer?.scrollViewWillBeginDragging(scrollView)
     }
     
-    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    open func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard self.targetScrollView == scrollView else { return }
         
         let panGesture = scrollView.panGestureRecognizer
@@ -56,7 +56,7 @@ extension DrawerScrollContentHandler: UIScrollViewDelegate {
         }
     }
     
-    public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    open func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         guard self.targetScrollView == scrollView else { return }
         
         if canDrawerViewMove {
@@ -64,7 +64,7 @@ extension DrawerScrollContentHandler: UIScrollViewDelegate {
         }
     }
     
-    public func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
+    open func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
         guard self.targetScrollView == scrollView else { return }
         
         // Keep the offset to initial to prevent scrolling when drawer is moving
@@ -76,7 +76,7 @@ extension DrawerScrollContentHandler: UIScrollViewDelegate {
         }
     }
     
-    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    open func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         guard self.targetScrollView == scrollView else { return }
         
         // For bug where drawer is still decelerating,

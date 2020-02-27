@@ -20,9 +20,15 @@ final class SecondViewController: UIViewController {
     
     weak var delegate: SecondViewControllerDelegate?
     
+    lazy var scrollHandler: CustomScrollHandler = {
+        CustomScrollHandler()
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        scrollHandler.targetScrollView = scrollView
+        scrollView.delegate = scrollHandler
     }
     
     override func viewDidAppear(_ animated: Bool) {
