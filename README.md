@@ -16,6 +16,44 @@ dependencies: [
 ]
 ```
 
+## Getting Started
+
+Adding a new drawer to a view controller is just a few simple lines. By default the drawer will show a gray handle and it's positions will be based on the `DefaultDrawerLayout` class.
+
+```swift
+import UIKit
+import DrawerViewController
+
+class ViewController: UIViewController {
+    
+    // Create the drawer
+    let drawer = DrawerViewController()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+                
+        // Create the content view controller
+        let contentViewController = UIViewController()
+        
+        // Set the drawer delegate to allow for customization and callbacks
+        drawer.delegate = self
+        
+        // Add the drawer to the "container"
+        drawer.add(to: self)
+        
+        // Add the content view to the drawer
+        drawer.set(contentViewController: contentViewController)
+        
+        // Show the drawer at the desired position
+        drawer.showDrawerView(at: .bottom, animated: true)
+    }
+}
+
+extension ViewController: DrawerViewControllerDelegate {
+
+}
+```
+
 ## Potential Improvements
 
 - [ ] Allow client customization for sizing during horizontal transitioning
@@ -24,4 +62,4 @@ dependencies: [
 - [ ] Allow use of auto layout for drawer layout rather than set values
 - [ ] Create a "navigation drawer controller" with a custom animation similar to Apple maps to transition from one drawer to another
 - [ ] Consider having built in blur or opacity views that will automatically change based on points rather than client needing to make one
-- [ ] Consider refactoring DrawerScrollContentHandler to make it better 
+- [ ] Consider refactoring DrawerScrollContentHandler to make it better. I think it can be done based on the gesture of the scroll view rather than using the delegates. 
