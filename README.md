@@ -1,6 +1,6 @@
 # Drawer View Controller
 
-The drawer view controller is an UI designed very similarly to what is used in Apple maps and stocks and Google Maps.
+The drawer view controller is a simple UI designed very similarly to what is used in Apple maps and stocks and Google Maps.
 
 ## Installation
 
