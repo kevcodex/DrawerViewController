@@ -6,10 +6,10 @@ The drawer view controller is a simple UI designed very similarly to what is use
 
 ### Cocoapods
 
-[CocoaPods](https://cocoapods.org) is a dependency manager for Cocoa projects. For usage and installation instructions, visit their website. To integrate Alamofire into your Xcode project using CocoaPods, specify it in your `Podfile`:
+[CocoaPods](https://cocoapods.org) is a dependency manager for Cocoa projects. For usage and installation instructions, visit their website. To integrate into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
 ```ruby
-pod 'DrawerViewController', '0.0.9'
+pod 'DrawerViewController', '0.0.10'
 ```
 
 ### Swift Package Manager
