@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'DrawerViewController'
-  s.version          = '0.0.8'
+  s.version          = '0.0.9'
   s.summary          = 'The drawer view controller is a simple UI used for displaying content over another view controller.'
   s.description      = <<-DESC
   The drawer view controller is a simple UI designed very similarly to what is used in Apple maps and stocks and Google Maps.
