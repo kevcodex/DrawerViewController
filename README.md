@@ -26,7 +26,7 @@ dependencies: [
 
 ## Getting Started
 
-Adding a new drawer to a view controller is just a few simple lines. By default the drawer will show a gray handle and it's positions will be based on the `DefaultDrawerLayout` class.
+Adding a new drawer to a view controller is just a few simple lines. By default the drawer will show a gray handle and its positions will be based on the `DefaultDrawerLayout` class.
 
 ```swift
 import UIKit
