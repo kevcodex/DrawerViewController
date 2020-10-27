@@ -38,7 +38,7 @@ public protocol DrawerEvent {
 
     func drawerViewControllerTraitCollectionDidChange(in drawerViewController: DrawerViewController, previousTraitCollection: UITraitCollection?)
     
-    func drawerViewControllerViewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator)
+    func drawerViewControllerViewWillTransition(_ drawerViewController: DrawerViewController, to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator)
 }
 
 public extension DrawerEvent {
@@ -66,5 +66,5 @@ public extension DrawerEvent {
     
     func drawerViewControllerTraitCollectionDidChange(in drawerViewController: DrawerViewController, previousTraitCollection: UITraitCollection?) {}
     
-    func drawerViewControllerViewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {}
+    func drawerViewControllerViewWillTransition(_ drawerViewController: DrawerViewController, to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {}
 }

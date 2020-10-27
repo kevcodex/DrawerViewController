@@ -77,7 +77,7 @@ open class DrawerViewController: UIViewController {
     override public func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         
-        delegate?.drawerViewControllerViewWillTransition(to: size, with: coordinator)
+        delegate?.drawerViewControllerViewWillTransition(self, to: size, with: coordinator)
     }
     
     override public func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
