@@ -157,12 +157,14 @@ open class DrawerViewController: UIViewController {
     }
     
     public func showDrawerView(at position: Position,
-                        vector: CGVector = .zero,
-                        frequencyPeriod: CGFloat = DrawerViewController.frequencyPeriod,
-                        animated: Bool,
-                        completion: (() -> Void)? = nil) {
+                               vector: CGVector = .zero,
+                               frequencyPeriod: CGFloat = DrawerViewController.frequencyPeriod,
+                               animated: Bool,
+                               completion: (() -> Void)? = nil) {
         
         setupTopConstraint(to: position)
+        
+        delegate?.drawerViewControllerWillCompleteMoving(self, to: position)
         
         if animated {
             animateMovingDrawerView(with: vector, frequencyPeriod: frequencyPeriod, completion: completion)

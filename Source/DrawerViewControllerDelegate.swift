@@ -31,6 +31,9 @@ public protocol DrawerEvent {
                                             currentPoint: CGFloat,
                                             projectedPosition: DrawerViewController.Position?)
     
+    func drawerViewControllerWillCompleteMoving(_ drawerViewController: DrawerViewController,
+                                                to position: DrawerViewController.Position?)
+    
     func drawerViewControllerDidCompleteMoving(_ drawerViewController: DrawerViewController,
                                                to position: DrawerViewController.Position?)
     
@@ -56,6 +59,9 @@ public extension DrawerEvent {
                                             with velocity: CGPoint,
                                             currentPoint: CGFloat,
                                             projectedPosition: DrawerViewController.Position?) {}
+    
+    func drawerViewControllerWillCompleteMoving(_ drawerViewController: DrawerViewController,
+                                                to position: DrawerViewController.Position?) {}
     
     func drawerViewControllerDidCompleteMoving(_ drawerViewController: DrawerViewController,
                                                to position: DrawerViewController.Position?) {}
