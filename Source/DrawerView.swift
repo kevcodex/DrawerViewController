@@ -9,7 +9,8 @@ open class DrawerView: UIView {
     public private(set) var grabberView = GrabberView()
     
     public private(set) var leftBarView: UIView?
-    
+    public private(set) var rightBarView: UIView?
+
     private weak var contentView: UIView?
     
     // TODO: - Future allow top area and grabber view width/height to be changeable
@@ -100,6 +101,24 @@ open class DrawerView: UIView {
         leftBarView = view
     }
     
+    public func setRightBarView(_ view: UIView) {
+        
+        rightBarView?.removeFromSuperview()
+        
+        addSubview(view)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            rightAnchor.constraint(equalTo: view.rightAnchor, constant: 20),
+            view.centerYAnchor.constraint(equalTo: grabberView.centerYAnchor)
+        ])
+        
+        if let contentView = contentView {
+            view.bottomAnchor.constraint(lessThanOrEqualTo: contentView.topAnchor).isActive = true
+        }
+        
+        rightBarView = view
+    }
     
     /// Adds a tap gesture on the grabber handle to perform any action.
     /// - Parameters:

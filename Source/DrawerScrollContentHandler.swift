@@ -19,6 +19,8 @@ open class DrawerScrollContentHandler: NSObject {
     /// The content scroll view you want to monitor.
     public weak var targetScrollView: UIScrollView?
     
+    public var allowedScrollPositions: [DrawerViewController.Position] = [.top]
+    
     /// Make sure to set both drawer and targetScrollView in order for this to work
     public init(targetScrollView: UIScrollView? = nil, drawer: DrawerViewController? = nil) {
         self.targetScrollView = targetScrollView
@@ -45,12 +47,13 @@ extension DrawerScrollContentHandler: UIScrollViewDelegate {
         
         // Only allow to move when the scroll view is
         // at top and pulling downward.
-        // Or if drawer is not at top.
+        // Or if specific positions that are allowed to scroll. Default top is allowed to scroll
         if canDrawerViewMove, scrollView.contentOffset.y <= 0.0, translation.y >= 0.0 {
             drawer?.scrollViewDidScroll(scrollView)
         } else if drawer?.isDragging ?? false {
             drawer?.scrollViewDidScroll(scrollView, initialOffset: scrollViewInitialOffset)
-        } else if drawer?.layout.currentPosition != .top {
+        } else if let position = drawer?.layout.currentPosition,
+                  allowedScrollPositions.contains(position) == false {
             drawer?.scrollViewDidScroll(scrollView, initialOffset: scrollViewInitialOffset)
         } else {
             canDrawerViewMove = false

@@ -4,7 +4,7 @@
 
 import UIKit
 
-public protocol DrawerViewControllerDelegate: class, DrawerEvent {
+public protocol DrawerViewControllerDelegate: AnyObject, DrawerEvent {
     
 }
 

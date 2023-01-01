@@ -4,7 +4,7 @@
 
 import UIKit
 
-public protocol DrawerLayout: class {
+public protocol DrawerLayout: AnyObject {
     var currentPosition: DrawerViewController.Position { get set }
     
     func currentPositionInset() -> CGFloat?
